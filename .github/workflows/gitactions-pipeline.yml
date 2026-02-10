@@ -59,7 +59,7 @@ jobs:
         run: |
           # Linux sed 명령어로 이미지 태그 교체
           # k8s/helm/values.yaml 파일의 tag: "..." 부분을 찾아 현재 빌드 번호로 변경
-          sed -i 's/tag: ".*"/tag: "${{ github.run_number }}"/g' ./k8s/helm/values.yaml
+          sed -i 's/tag: ".*"/tag: "${{ github.run_number }}"/g' k8s/helm/values.yaml
           # 변경 내용 확인
           cat k8s/helm/values.yaml
 
