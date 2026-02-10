@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application  # ArgoCD의 핵심 리소스 타입인 'Application'입니다.
+metadata:
+  name: argocd-gitactions-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/ANchangwan/argoCD_gitactions_Application.git'
+    targetRevision: main
+    path: k8s/helm
+
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      # 동기화 옵션 추가 설정
+    syncOptions:
+      - CreateNamespace=true # destination.namespace가 없으면 자동으로 생성합니다.
