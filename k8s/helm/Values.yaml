@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: anchangwan/argocd-gitactions-app
   pullPolicy: ifNotPresent
-  tag: "latest"
+  tag: "13"
 
 service:
   type: LoadBalancer
