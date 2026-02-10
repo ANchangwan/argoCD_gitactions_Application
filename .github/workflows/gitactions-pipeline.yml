@@ -31,11 +31,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
       # 3. Gradle 빌드
       - name: Build with Gradle
-        run: |
-          chmod +x gradlew
-          ./gradlew clean build
+        run: ./gradlew clean build
 
       # 4. 도커 허브 로그인 (Secret으로 등록한 도커 허브 아이디와 비밀번호 사용)
       - name: Login to Docker Hub
